@@ -1,4 +1,6 @@
 class Square
+  attr_reader :owner
+  
   def initialize
     @owner = false
   end
@@ -21,9 +23,7 @@ class Square
     self.is_owned? ? @owner.symbol : " "
   end
 
-  private
   def is_owned?
     @owner ? true : false
   end
-
 end
