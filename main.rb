@@ -4,4 +4,3 @@ require_relative 'square'
 require_relative 'board'
 
 game = Game.new
-game.board.draw_grid

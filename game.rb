@@ -1,6 +1,4 @@
 class Game
-  attr_reader :board
-
   def initialize
     system("clear")
     @player_number = 1
@@ -8,6 +6,7 @@ class Game
     @player1 = create_player
     @player2 = create_player
     @board = Board.new(@player1, @player2)
+    play_game
   end
 
   private
@@ -24,5 +23,9 @@ class Game
     @used_symbol = player_symbol
     puts
     Player.new(player_name, player_symbol)
+  end
+
+  def play_game
+    @board.draw_grid
   end
 end

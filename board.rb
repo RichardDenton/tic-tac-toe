@@ -1,6 +1,4 @@
 class Board
-  attr_reader :grid
-
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
@@ -8,15 +6,6 @@ class Board
     @grid = {}
     @coords.each do |coord|
       @grid[coord] = Square.new
-    end
-  end
-
-  def mark_square(coord, player)
-    unless @grid[coord].is_owned?
-      @grid[coord].owner = player
-      return true
-    else
-      return false
     end
   end
 
