@@ -4,7 +4,7 @@ class Board
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
-    @coords = ['a3', 'b3', 'c3', 'a2', 'b2', 'c2', 'a1', 'b1', 'c1']
+    @coords = ['c1', 'c2', 'c3', 'b1', 'b2', 'b3', 'a1', 'a2', 'a3']
     @winning_combos = [['a1', 'a2', 'a3'], ['b1', 'b2', 'b3'], ['c1', 'c2', 'c3'], 
                        ['a1', 'b1', 'c1'], ['a2', 'b2', 'c2'], ['a3', 'b3', 'c3'],
                        ['a1', 'b2', 'c3'], ['a3', 'b2', 'c1']]
@@ -18,17 +18,17 @@ class Board
   def draw_grid
     puts
     puts "       |     |     "
-    puts "c   #{@grid['c1']}  |  #{@grid['c2']}  |  #{@grid['c3']}  "
+    puts "3   #{@grid['a3']}  |  #{@grid['b3']}  |  #{@grid['c3']}  "
     puts "       |     |     "
     puts "  -----------------"
     puts "       |     |     "
-    puts "b   #{@grid['b1']}  |  #{@grid['b2']}  |  #{@grid['b3']}  "
+    puts "2   #{@grid['a2']}  |  #{@grid['b2']}  |  #{@grid['c2']}  "
     puts "       |     |     "
     puts "  -----------------"
     puts "       |     |     "
-    puts "a   #{@grid['a1']}  |  #{@grid['a2']}  |  #{@grid['a3']}  "
+    puts "1   #{@grid['a1']}  |  #{@grid['b1']}  |  #{@grid['c1']}  "
     puts "       |     |     "
-    puts "    1     2     3  "
+    puts "    a     b     c  "
     puts
   end
 
