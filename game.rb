@@ -1,34 +1,12 @@
 class Game
-  def initialize
-    @player_number = 1
-    @used_symbol = nil
-    @player1 = create_player
-    @player2 = create_player
-    @board = Board.new(@player1, @player2)
-    @game_over = false
-    @player_turn = 1
-    play_game
+  def initialize(player1, player2)
+    @player1 = player1
+    @player2 = player2
   end
 
-  private
-  def create_player
-    puts "Enter the name of player #{@player_number.to_s}:"
-    player_name = gets.chomp
-    player_symbol = ''
-
-    until player_symbol.length == 1 && player_symbol != @used_symbol
-      puts "Enter the symbol for #{player_name}, must be exactly one character long:"
-      player_symbol = gets.chomp
-      puts "Cannot use the same symbol as #{@player1.name}" if player_symbol == @used_symbol
-    end
-
-    @player_number += 1
-    @used_symbol = player_symbol
-    puts
-    Player.new(player_name, player_symbol)
-  end
-
+  public
   def play_game
+    set_start_state
     @board.draw_grid
 
     until @game_over
@@ -45,17 +23,23 @@ class Game
 
       @player_turn == 1 ? @player_turn = 2 : @player_turn = 1
     end
-    
     print "Play another game (y/n)? "
     again = nil
     until again == 'y' || again == 'n' do
       again = gets.chomp.downcase
     end
     if again == 'y'
-      initialize
+      play_game
     else
       puts "Thanks for playing"
     end
+  end
+
+  private
+  def set_start_state
+    @board = Board.new(@player1, @player2)
+    @game_over = false
+    @player_turn = 1
   end
 
   def mark_square(player)
