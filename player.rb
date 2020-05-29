@@ -1,6 +1,5 @@
 class Player
-  attr_reader :name
-  attr_reader :symbol
+  attr_reader :name, :symbol
 
   @@taken_symbols = []
 
